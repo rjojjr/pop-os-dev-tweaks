@@ -7,6 +7,14 @@
 # This script can be executed at boot by running the install-docker-fix.sh
 # script in this directory.
 
+echo '*************************************************'
+echo 'Docker Desktop Config Corruption Mitigation Watcher Script'
+echo '*************************************************'
+echo 'Created by [Robert Kirchner JR(rjojjr)](https://github.com/rjojjr)'
+echo ''
+echo 'Please give [this repo](https://github.com/rjojjr/pop-os-dev-tweaks) a star if you find it useful'
+echo '*************************************************'
+
 FILE="$HOME/.docker/config.json"
 LAST=`ls -l "$FILE"`
 while true; do
