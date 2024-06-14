@@ -14,3 +14,4 @@ echo 'Installing Rust...'
 sudo apt install rustup -y
 echo 'Installed Rust'
 echo '*************************************************'
+echo '*** NOTE - You may need to logout/restart in order for the changes to take effect ***'
