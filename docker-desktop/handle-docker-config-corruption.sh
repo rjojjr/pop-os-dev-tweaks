@@ -15,15 +15,18 @@ echo ''
 echo 'Please give [this repo](https://github.com/rjojjr/pop-os-dev-tweaks) a star if you find it useful'
 echo '*************************************************'
 
+
+CHECK_INTERVAL=2
+WAIT_INTERVAL=10
 FILE="$HOME/.docker/config.json"
-LAST=`ls -l "$FILE"`
+LAST_UPDATE=`ls -l "$FILE"`
 while true; do
-  sleep 2
-  NEW=`ls -l "$FILE"`
-  if [ "$NEW" != "$LAST" ]; then
+  sleep $CHECK_INTERVAL
+  CURRENT_STATE=`ls -l "$FILE"`
+  if [ "$CURRENT_STATE" != "$LAST_UPDATE" ]; then
     sed -i s/credsStore/credStore/g "$FILE"
     # This sleep prevents a potential infinite loop when docker detects a change to the config
-    sleep 10
-    LAST=`ls -l "$FILE"`
+    sleep $WAIT_INTERVAL
+    LAST_UPDATE=`ls -l "$FILE"`
   fi
 done
