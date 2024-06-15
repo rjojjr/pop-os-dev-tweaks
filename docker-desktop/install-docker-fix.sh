@@ -24,10 +24,10 @@ Exec=/bin/handle-docker-config-corruption.sh
 Hidden=false
 NoDisplay=false
 X-GNOME-Autostart-enabled=true
-Name[en_US]=Docker Desktop Config Fix
-Name=Docker Desktop Config Fix
+Name[en_US]=Docker Desktop Config Corruption Fix
+Name=Docker Desktop Config Corruption Fix
 EOM
 
-echo 'Installed Docker Desktop Config Mitigation'
+echo 'Installed Docker Desktop Config Corruption Mitigation'
 echo '*************************************************'
 echo '*** NOTE - You may need to logout/restart in order for the changes to take effect ***'
