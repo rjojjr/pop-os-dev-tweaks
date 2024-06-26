@@ -14,7 +14,9 @@ echo '*************************************************'
 echo 'Installing Docker Desktop Config Mitigation...'
 
 cp ./handle-docker-config-corruption.sh /bin/handle-docker-config-corruption.sh
-sudo chmod +x /bin/handle-docker-config-corrupecho '*************************************************'tion.sh
+sudo chmod +x /bin/handle-docker-config-corruption.sh
+
+echo '*************************************************'
 
 echo 'Adding autostart entry...'
 cat > ~/.config/autostart/docker-desktop-config-fix.desktop  <<- EOM
