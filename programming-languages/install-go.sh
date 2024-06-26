@@ -17,7 +17,7 @@ wget https://dl.google.com/go/go1.22.4.linux-amd64.tar.gz
 echo 'Removing any previous existing go SDKs'
 rm -rf /usr/local/go
 echo 'Unpacking SDK...'
-tar -C /usr/local -xzf go1.22.4.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.22.4.linux-amd64.tar.gz
 echo "export PATH=$PATH:/usr/local/go/bin" >> "$HOME/.profile"
 echo 'Cleaning up...'
 rm go1.22.4.linux-amd64.tar.gz

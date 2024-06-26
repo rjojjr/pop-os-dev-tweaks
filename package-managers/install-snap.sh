@@ -11,3 +11,4 @@ echo '*************************************************'
 sudo apt update
 sudo apt install snapd -y
 sudo snap install core
+snap install snap-store
