@@ -10,6 +10,12 @@ echo ''
 echo 'Please give [this repo](https://github.com/rjojjr/pop-os-dev-tweaks) a star if you find it useful'
 echo '*************************************************'
 
+echo 'Installing missing WebEx dependencies'
+sudo add-apt-repository main
+sudo apt update
+sudo apt install libgl1-mesa-glx -y
+sudo apt --fix-broken install
+
 echo 'Installing official WebEx client...'
 cd /tmp || (mkdir /tmp && cd /tmp)
 wget https://binaries.webex.com/WebexDesktop-Ubuntu-Official-Package/Webex.deb
