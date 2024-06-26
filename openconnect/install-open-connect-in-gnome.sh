@@ -21,16 +21,9 @@ sudo apt install openconnect -y
 # include a userAgent field that can be used to mitigate 404 errors from Cisco Anyconnect
 # VPN servers.
 
-# If you encounter 404 errors when trying to connect to an OpenConnect VPN connection,
-# try setting the userAgent to 'AnyConnect'.
-wget http://ftp.us.debian.org/debian/pool/main/n/network-manager-openconnect/network-manager-openconnect_1.2.10-1_amd64.deb
-sudo dpkg -i network-manager-openconnect_1.2.10-1_amd64.deb
-wget http://ftp.us.debian.org/debian/pool/main/n/network-manager-openconnect/network-manager-openconnect-gnome_1.2.10-1_amd64.deb
-sudo dpkg -i dpkg -i network-manager-openconnect-gnome_1.2.10-1_amd64.deb
+sudo apt install network-manager-openconnect=1.2.6-4 -y
+sudo apt install network-manager-openconnect-gnome -y
 
-echo 'Cleaning up...'
-rm network-manager-openconnect_1.2.10-1_amd64.deb
-rm network-manager-openconnect-gnome_1.2.10-1_amd64.deb
 
 echo 'Installed OpenConnect support modules to Gnome Network Manager'
 echo '*************************************************'
