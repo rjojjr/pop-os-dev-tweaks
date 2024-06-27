@@ -30,9 +30,14 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 echo 'Installing official Docker Desktop client...'
 cd /tmp || (mkdir /tmp && cd /tmp)
 
+
 # TODO - Get latest client
 wget https://desktop.docker.com/linux/main/amd64/149282/docker-desktop-4.30.0-amd64.deb
 sudo dpkg -i docker-desktop-4.30.0-amd64.deb
+if [ $? -ne 0 ]; then
+    sudo apt-get -f install -y
+    sudo dpkg -i docker-desktop-4.30.0-amd64.deb
+fi
 echo 'Cleaning up ...'
 rm docker-desktop-4.30.0-amd64.deb
 echo 'Refreshing installed apps...'
