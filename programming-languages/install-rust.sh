@@ -11,7 +11,7 @@ echo 'Please give [this repo](https://github.com/rjojjr/pop-os-dev-tweaks) a sta
 echo '*************************************************'
 
 echo 'Installing Rust...'
-snap install rustup --classic
+curl https://sh.rustup.rs -sSf | sh
 echo 'Installed Rust'
 echo '*************************************************'
 echo '*** NOTE - You may need to logout/restart in order for the changes to take effect ***'
