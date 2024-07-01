@@ -19,6 +19,7 @@ sudo chmod +x /bin/handle-docker-config-corruption.sh
 echo '*************************************************'
 
 echo 'Adding autostart entry...'
+mkdir -p ~/.config/autostart
 cat > ~/.config/autostart/docker-desktop-config-fix.desktop  <<- EOM
 [Desktop Entry]
 Type=Application
