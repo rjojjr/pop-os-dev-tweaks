@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# This script handles errors various produced when using docker buildx to
+# build arm64 images on the Dell g16 7630.
+
 echo '*************************************************'
 echo 'Dell G16 7630 Docker ARM64 Build Fix'
 echo '*************************************************'
@@ -14,7 +17,7 @@ echo '*************************************************'
 
 echo 'Updating packages and installing dependencies'
 
-cd ~/bin
+cd ~/bin || (mkdir ~/bin && cd ~/bin || exit 1)
 sudo apt update && apt upgrade -y
 sudo apt install make -y
 sudo apt install ninja-build -y
@@ -23,6 +26,7 @@ wget https://download.qemu.org/qemu-7.0.0.tar.xz
 tar xvJf qemu-7.0.0.tar.xz
 cd qemu-7.0.0/
 echo 'Building QEMU 7.0.0 package'
+echo 'This might take a while'
 ./configure
 make
 make install
@@ -37,6 +41,10 @@ docker run --rm --privileged multiarch/qemu-user-static --reset -p yes -c yes
 
 echo 'Cleaning up'
 rm qemu-7.0.0.tar.xz
+
+echo ''
+echo '!!! WARNING - Add $HOME/bin to your path if you have not done so already !!!'
+echo ''
 
 echo 'Executed Dell G16 Docker ARM64 Build Fix'
 echo '*************************************************'
