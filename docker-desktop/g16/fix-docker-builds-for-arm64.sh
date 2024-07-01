@@ -1,14 +1,14 @@
 #!/bin/bash
 
 echo '*************************************************'
-echo 'Dell G16 Docker ARM64 Build Fix'
+echo 'Dell G16 7630 Docker ARM64 Build Fix'
 echo '*************************************************'
 echo 'Created by [Robert Kirchner JR(rjojjr)](https://github.com/rjojjr)'
 echo ''
 echo 'Please give [this repo](https://github.com/rjojjr/pop-os-dev-tweaks) a star if you find it useful'
 echo '*************************************************'
 echo ''
-echo 'This script fixes errors that can occur on the Dell G16 when using docker buildx to build images that target ARM64'
+echo 'This script fixes errors(Segmentation Fault, etc) that can occur on the Dell G16 7630 when using docker buildx to build images that target ARM64'
 echo ''
 echo '*************************************************'
 
