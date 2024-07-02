@@ -12,7 +12,7 @@ echo 'Please give [this repo](https://github.com/rjojjr/pop-os-dev-tweaks) a sta
 echo '*************************************************'
 
 echo 'Installing official Zoom client...'
-cd /tmp || (mkdir /tmp && cd /tmp)
+cd /tmp || (mkdir /tmp && cd /tmp || exit 1)
 wget https://cdn.zoom.us/prod/6.0.12.5501/zoom_amd64.deb
 sudo dpkg -i zoom_amd64.deb
 if [ $? -ne 0 ]; then
