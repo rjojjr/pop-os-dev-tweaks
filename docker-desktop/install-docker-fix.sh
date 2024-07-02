@@ -19,12 +19,13 @@ sudo chmod +x /bin/handle-docker-config-corruption.sh
 echo '*************************************************'
 
 echo 'Adding autostart entry...'
+mkdir -p ~/.config/autostart
 cat > ~/.config/autostart/docker-desktop-config-fix.desktop  <<- EOM
 [Desktop Entry]
 Type=Application
 Exec=/bin/handle-docker-config-corruption.sh
-Hidden=true
-NoDisplay=true
+Hidden=false
+NoDisplay=false
 X-GNOME-Autostart-enabled=true
 Name[en_US]=Docker Desktop Config Corruption Fix
 Name=Docker Desktop Config Corruption Fix

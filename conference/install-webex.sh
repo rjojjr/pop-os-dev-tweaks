@@ -16,7 +16,7 @@ sudo apt update
 sudo apt install libgl1-mesa-glx -y
 
 echo 'Installing official WebEx client...'
-cd /tmp || (mkdir /tmp && cd /tmp)
+cd /tmp || (mkdir /tmp && cd /tmp || exit 1)
 wget https://binaries.webex.com/WebexDesktop-Ubuntu-Official-Package/Webex.deb
 sudo dpkg -i Webex.deb
 if [ $? -ne 0 ]; then

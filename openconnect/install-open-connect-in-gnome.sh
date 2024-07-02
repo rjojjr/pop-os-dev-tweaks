@@ -13,36 +13,11 @@ echo '*************************************************'
 
 echo 'Installing OpenConnect support modules to Gnome Network Manager...'
 
-cd /tmp || (mkdir /tmp && cd /tmp)
+echo 'deb http://download.opensuse.org/repositories/home:/bluca:/openconnect:/release/Ubuntu_22.04/ /' | sudo tee /etc/apt/sources.list.d/home:bluca:openconnect:release.list
+curl -fsSL https://download.opensuse.org/repositories/home:bluca:openconnect:release/Ubuntu_22.04/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_bluca_openconnect_release.gpg > /dev/null
 sudo apt update
-sudo apt install openconnect -y
+sudo apt install openconnect network-manager-openconnect network-manager-openconnect-gnome
 
-# These versions of the openconnect Network Manager plugin
-# include a userAgent field that can be used to mitigate 404 errors from Cisco Anyconnect
-# VPN servers.
-
-sudo apt install network-manager-openconnect=1.2.6-4 -y
-sudo apt install network-manager-openconnect-gnome -y
-
-# If you encounter 404 errors when trying to connect to an OpenConnect VPN connection,
-# try setting the userAgent to 'AnyConnect'.
-wget http://archive.ubuntu.com/ubuntu/pool/universe/n/network-manager-openconnect/network-manager-openconnect_1.2.10-1_amd64.deb
-sudo dpkg -i network-manager-openconnect_1.2.10-1_amd64.deb
-if [ $? -ne 0 ]; then
-    sudo apt-get -f install -y
-    sudo dpkg -i network-manager-openconnect_1.2.10-1_amd64.deb
-fi
-
-wget http://archive.ubuntu.com/ubuntu/pool/universe/n/network-manager-openconnect/network-manager-openconnect-gnome_1.2.10-1_amd64.deb
-sudo dpkg -i network-manager-openconnect-gnome_1.2.10-1_amd64.deb
-if [ $? -ne 0 ]; then
-    sudo apt-get -f install -y
-    sudo dpkg -i network-manager-openconnect-gnome_1.2.10-1_amd64.deb
-fi
-
-echo 'Cleaning up...'
-rm network-manager-openconnect_1.2.10-1_amd64.deb
-rm network-manager-openconnect-gnome_1.2.10-1_amd64.deb
 
 echo 'Installed OpenConnect support modules to Gnome Network Manager'
 echo '*************************************************'
